@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My HTML Page</title>
+</head>
+<body>
+    <p>
+        <div>
+       <h1> image carousel</h1>
+       <div id="carousel"></div>
+       <img id="image" style="width:500px; ,height:400px; border-radius:10px; padding:5px; border:black-solid"/>
+       <button id="preimage"> previous </button>
+       <button id="nextimage"> next </button>
+       
+       </div>   
+    </p>
+    <script>var images;
+
+
+        images = ['https://unsplash.com/photos/hxn2HjZHyQE', 'https://unsplash.com/photos/75715CVEJhI', 'https://unsplash.com/photos/mBRfYA0dYYE'];
+        
+        
+        document.getElementById('Image').addEventListener('click', (event) => {
+          let element_list = document.getElementById('list');
+          element_list.setAttribute("src", images[0]);
+          element_list.setAttribute("src", 'nextbutton');
+        
+        });
+        
+        document.getElementById('next_image').addEventListener('click', (event) => {
+          images.unshift(images.pop());
+          let element_image = document.getElementById('image');
+          element_image.setAttribute("src", images[0]);
+        
+        });
+        
+        document.getElementById('preimages').addEventListener('click', (event) => {
+          images.push(images.shift());
+          let element_list2 = document.getElementById('list');
+          element_list2.setAttribute("src", images.slice(-1)[0]);
+        
+        });</script>
+
+</body>
+</html>
